@@ -1,0 +1,1 @@
+function enableFields(form) {		var activity = getValue('WKNumState');if (activity == 6) {form.setEnabled('txt_descr_solic', false);}}

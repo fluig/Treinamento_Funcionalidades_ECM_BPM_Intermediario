@@ -1,0 +1,169 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide-ratingstars.min.css">
+	<script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+
+	<script src="main.js"></script>
+
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+
+	<div class="panel panel-primary"  id="panelSolicitante">
+	    <div class="panel-heading">
+	        <h3 class="panel-title">i18n.translate("panel.titulo.solicitante")</h3>
+	    </div>
+	    <div class="panel-body">
+	        <div class="row">
+	        	<div class="col-md-4">
+	        		<label for="txt_solicitante">i18n.translate("solicitante.nome")</label>
+	        		<input type="text" id="txt_solicitante" name="txt_solicitante" class="form-control" readonly
+					data-protection="Nome"
+        			data-protection-anonymizable="true"
+        			data-protection-name
+        			data-protection-class-consent="O campo Nome é preenchido para facilitar a usabilidade do processo de Service Desk"
+	        		>
+	        	</div>
+	        	<div class="col-md-4">
+	        		<label for="txt_solic_email">i18n.translate("solicitante.email")</label>
+	        		<input type="text" id="txt_solic_email" name="txt_solic_email" class="form-control" readonly
+	        		data-protection="Email"
+        			data-protection-anonymizable="true"
+        			data-protection-mail
+        			data-protection-class-consent="O campo Email é preenchido para facilitar a usabilidade do processo de Service Desk"
+	        		>
+	        	</div>
+	        	<div class="col-md-4">
+	        		<label for="txt_dt_solic">i18n.translate("solicitante.data")</label>
+	        		<input type="text" id="txt_dt_solic" name="txt_dt_solic" class="form-control" readonly>
+	        	</div>
+	        </div>
+	        
+	        <div class="row">
+	        	<div class="col-md-4">
+	        		<label for="txt_telefone_ramal" class="obrigatorio">i18n.translate("solicitante.telefoneRamal")</label>
+	        		<input type="text" id="txt_telefone_ramal" name="txt_telefone_ramal" class="form-control"  mask="(00) 90000-0000">
+	        	</div>
+
+	           	<div class="col-md-4">
+	        		<label for="txt_tema" >i18n.translate("solicitante.tema")</label>
+	        		<input
+					    type="zoom"
+					    id = "txt_tema"
+					    name="txt_tema"
+					    data-zoom="{
+					        'displayKey':'Tema',
+					        'datasetId':'ds_service_desk_tema',
+					        'placeholder':'Escolha o tema',
+					        'fields':[
+					            {
+					               'field':'Tema',
+					               'label':'Tema'
+					            }
+					        ]
+					    }"
+					/>
+	        	</div>
+	           	<div class="col-md-4">
+	        		<label for="txt_sub_tema">i18n.translate("solicitante.sub.tema")</label>
+	        		<input
+					    type="zoom"
+					    id = "txt_sub_tema"
+					    name="txt_sub_tema"
+					    data-zoom="{
+					        'displayKey':'Subtema',
+					        'datasetId':'ds_service_desk_subtema',
+					        'placeholder':'Escolha o subtema',
+					        'fields':[
+					            {
+					               'field':'Subtema',
+					               'label':'Subtema'
+					            }
+					        ]
+					    }"
+					/>
+	        	</div>
+	        </div>
+	        
+	        <div class="row">
+	        	<div class="col-md-12">
+	        		<label for="txt_detal_solic">i18n.translate("solicitante.detalhamento.solicitacao")</label>
+	        		<textarea rows="4" cols="4" class="form-control" id="txt_detal_solic" name="txt_detal_solic"></textarea>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="panel panel-primary"  id="panelAtendimento">
+	    <div class="panel-heading">
+	        <h3 class="panel-title">i18n.translate("panel.titulo.atendimento")</h3>
+	    </div>
+	    <div class="panel-body">
+	        <div class="row">
+	           	<div class="col-md-4">
+	        		<label for="solic_valida">i18n.translate("atendimento.solic.valida")</label>
+	        		<div class="radio">
+					    <label>
+					    <input type="radio" name="solic_valida" id="solic_valida_sim" value="sim">
+					    	Sim
+					    </label>
+					</div>
+					<div class="radio">
+					    <label>
+					    <input type="radio" name="solic_valida" id="solic_valida_nao" value="nao">
+					    	Não
+					    </label>
+					</div>
+	        	</div>
+	        	<div class="col-md-4">
+	        		<label for="txt_justificativa_reprovacao">i18n.translate("atendimento.justificativa.reprovacao")</label>
+	        		<textarea rows="4" cols="4" class="form-control" id="txt_justificativa_reprovacao" name="txt_justificativa_reprovacao"></textarea>
+	        	</div>
+	        </div>
+				        
+	        <div class="row">
+	        	<div class="col-md-12">
+	        		<label for="txt_solucao">i18n.translate("atendimento.solucao")</label>
+	        		<textarea rows="4" cols="4" class="form-control" id="txt_solucao" name="txt_solucao"></textarea>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="panel panel-primary"  id="panelAvaliarAtendimento">
+	    <div class="panel-heading">
+	        <h3 class="panel-title">i18n.translate("panel.titulo.avaliar.atendimento")</h3>
+	    </div>
+	    <div class="panel-body">
+	        <div class="row">
+	           	<div class="col-md-4">
+	        		<div class="form-group">
+	        			<label for="solic_resolvida">i18n.translate("atendimento.nota")</label>
+	        			<div id="nota_atendimento"></div>
+	        			
+	        			<!-- Campo hidden para armazenar o valor da avaliacao -->
+	        			<input type="hidden" name="nota" id="nota">
+	        		</div>
+	        	</div>
+
+	        	<div class="col-md-8">
+	        		<label for="txt_obs_atendimento">i18n.translate("atendimento.observacoes")</label>
+	        		<textarea rows="4" cols="4" class="form-control" id="txt_obs_atendimento" name="txt_obs_atendimento"></textarea>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+	
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	
+</form>
+</div>
+</body>
+</html>
